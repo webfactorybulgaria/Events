@@ -18,20 +18,6 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'TypiCMS\Modules\Events\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @param \Illuminate\Routing\Router $router
-     *
-     * @return void
-     */
-    public function boot(Router $router)
-    {
-        parent::boot($router);
-
-        $router->model('events', 'TypiCMS\Modules\Events\Models\Event');
-    }
-
-    /**
      * Define the routes for the application.
      *
      * @param \Illuminate\Routing\Router $router
@@ -59,12 +45,18 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->resource('admin/events', 'AdminController');
+            $router->get('admin/events', ['as' => 'admin.events.index', 'uses' => 'AdminController@index']);
+            $router->get('admin/events/create', ['as' => 'admin.events.create', 'uses' => 'AdminController@create']);
+            $router->get('admin/events/{event}/edit', ['as' => 'admin.events.edit', 'uses' => 'AdminController@edit']);
+            $router->post('admin/events', ['as' => 'admin.events.store', 'uses' => 'AdminController@store']);
+            $router->put('admin/events/{event}', ['as' => 'admin.events.update', 'uses' => 'AdminController@update']);
 
             /*
              * API routes
              */
-            $router->resource('api/events', 'ApiController');
+            $router->get('api/events', ['as' => 'api.events.index', 'uses' => 'ApiController@index']);
+            $router->put('api/events/{event}', ['as' => 'api.events.update', 'uses' => 'ApiController@update']);
+            $router->delete('api/events/{event}', ['as' => 'api.events.destroy', 'uses' => 'ApiController@destroy']);
         });
     }
 }

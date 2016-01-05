@@ -3,7 +3,7 @@
 namespace TypiCMS\Modules\Events\Http\Controllers;
 
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use TypiCMS;
 use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
 use TypiCMS\Modules\Events\Repositories\EventInterface;
@@ -22,11 +22,11 @@ class PublicController extends BasePublicController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Support\Facades\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        $page = Input::get('page');
+        $page = Request::input('page');
         $perPage = config('typicms.events.per_page');
         $data = $this->repository->byPage($page, $perPage, ['translations']);
         $models = new Paginator($data->items, $data->totalItems, $perPage, null, ['path' => Paginator::resolveCurrentPath()]);
@@ -38,7 +38,7 @@ class PublicController extends BasePublicController
     /**
      * Show event.
      *
-     * @return \Illuminate\Support\Facades\Response
+     * @return \Illuminate\View\View
      */
     public function show($slug)
     {
