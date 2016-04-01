@@ -48,14 +48,5 @@ class Event extends Base
         'body',
     ];
 
-    /**
-     * Columns that are file.
-     *
-     * @var array
-     */
-    public $attachments = [
-        'image',
-    ];
-
     protected $appends = ['status', 'title', 'thumb'];
 }
