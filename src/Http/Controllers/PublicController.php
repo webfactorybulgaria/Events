@@ -15,7 +15,7 @@ class PublicController extends BasePublicController
 
     public function __construct(EventInterface $event, Calendar $calendar)
     {
-        parent::__construct($event);
+        parent::__construct($event, 'events');
         $this->calendar = $calendar;
     }
 
