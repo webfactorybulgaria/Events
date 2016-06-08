@@ -21,7 +21,7 @@ class EloquentEvent extends RepositoriesAbstract implements EventInterface
      *
      * @return Collection
      */
-    public function incoming($number = null, array $with = ['translations'])
+    public function incoming($number = null, array $with = [])
     {
         $query = $this->make($with);
         $query->where('end_date', '>=', date('Y-m-d'))

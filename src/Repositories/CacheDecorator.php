@@ -22,7 +22,7 @@ class CacheDecorator extends CacheAbstractDecorator implements EventInterface
      *
      * @return Collection
      */
-    public function incoming($number = 10, array $with = ['translations'])
+    public function incoming($number = 10, array $with = [])
     {
         $cacheKey = md5(config('app.locale').'incoming'.$number.serialize($with).serialize(Request::all()));
 

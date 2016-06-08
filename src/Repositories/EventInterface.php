@@ -15,5 +15,5 @@ interface EventInterface extends RepositoryInterface
      *
      * @return Collection
      */
-    public function incoming($number = 10, array $with = ['translations']);
+    public function incoming($number = 10, array $with = []);
 }

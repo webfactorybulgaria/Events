@@ -11,6 +11,6 @@ class EventTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Events\Models\Event', 'event_id');
+        return $this->belongsTo('TypiCMS\Modules\Events\Models\Event', 'event_id')->withoutGlobalScopes();
     }
 }

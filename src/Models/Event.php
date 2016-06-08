@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Events\Models;
 
-use Dimsav\Translatable\Translatable;
+use TypiCMS\Modules\Core\Traits\Translatable;
 use Laracasts\Presenter\PresentableTrait;
 use TypiCMS\Modules\Core\Models\Base;
 use TypiCMS\Modules\History\Traits\Historable;
@@ -48,5 +48,5 @@ class Event extends Base
         'body',
     ];
 
-    protected $appends = ['status', 'title', 'thumb'];
+    protected $appends = ['thumb'];
 }
