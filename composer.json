@@ -10,7 +10,7 @@
     ],
     "require": {
         "eluceo/ical": "~0.8",
-        "webfactorybulgaria/core": "dev-master"
+        "webfactorybulgaria/core": "dev-dev"
     },
     "autoload": {
         "psr-4": {
