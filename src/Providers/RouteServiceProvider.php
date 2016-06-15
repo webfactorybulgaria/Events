@@ -45,18 +45,18 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->get('admin/events', ['as' => 'admin.events.index', 'uses' => 'AdminController@index']);
-            $router->get('admin/events/create', ['as' => 'admin.events.create', 'uses' => 'AdminController@create']);
-            $router->get('admin/events/{event}/edit', ['as' => 'admin.events.edit', 'uses' => 'AdminController@edit']);
-            $router->post('admin/events', ['as' => 'admin.events.store', 'uses' => 'AdminController@store']);
-            $router->put('admin/events/{event}', ['as' => 'admin.events.update', 'uses' => 'AdminController@update']);
+            $router->get('admin/events', 'AdminController@index')->name('admin::index-events');
+            $router->get('admin/events/create', 'AdminController@create')->name('admin::create-event');
+            $router->get('admin/events/{event}/edit', 'AdminController@edit')->name('admin::edit-event');
+            $router->post('admin/events', 'AdminController@store')->name('admin::store-event');
+            $router->put('admin/events/{event}', 'AdminController@update')->name('admin::update-event');
 
             /*
              * API routes
              */
-            $router->get('api/events', ['as' => 'api.events.index', 'uses' => 'ApiController@index']);
-            $router->put('api/events/{event}', ['as' => 'api.events.update', 'uses' => 'ApiController@update']);
-            $router->delete('api/events/{event}', ['as' => 'api.events.destroy', 'uses' => 'ApiController@destroy']);
+            $router->get('api/events', 'ApiController@index')->name('api::index-events');
+            $router->put('api/events/{event}', 'ApiController@update')->name('api::update-event');
+            $router->delete('api/events/{event}', 'ApiController@destroy')->name('api::destroy-event');
         });
     }
 }

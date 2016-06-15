@@ -49,4 +49,14 @@ class Event extends Base
     ];
 
     protected $appends = ['thumb'];
+
+    /**
+     * Append thumb attribute.
+     *
+     * @return string
+     */
+    public function getThumbAttribute()
+    {
+        return $this->present()->thumbSrc(null, 22);
+    }
 }
