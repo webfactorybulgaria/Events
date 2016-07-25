@@ -9,7 +9,7 @@
     @include('core::admin._button-create', ['module' => 'events'])
 
     <h1>
-        <span>@{{ models.length }} @choice('events::global.events', 2)</span>
+        <span>@{{ totalModels }} @choice('events::global.events', 2)</span>
     </h1>
 
     <div class="btn-toolbar">
@@ -17,20 +17,46 @@
     </div>
 
     <div class="table-responsive">
-
-        <table st-persist="eventsTable" st-table="displayedModels" st-safe-src="models" st-order st-filter class="table table-condensed table-main">
+        <table st-persist="eventsTable" st-table="displayedModels" st-order st-sort-default="start_date" st-sort-default-reverse="true" st-pipe="callServer" st-filter class="table table-condensed table-main">
             <thead>
+                <tr>
+                    <td colspan="7" st-items-by-page="itemsByPage" st-pagination="" st-template="/views/partials/pagination.custom.html"></td>
+                </tr>
                 <tr>
                     <th class="delete"></th>
                     <th class="edit"></th>
                     <th st-sort="status" class="status st-sort">Status</th>
                     <th st-sort="image" class="image st-sort">Image</th>
-                    <th st-sort="start_date" st-sort-default="reverse" class="date st-sort">Start date</th>
-                    <th st-sort="end_date" st-sort-default="reverse" class="date st-sort">End date</th>
+                    <th st-sort="start_date" class="date st-sort">Start date</th>
+                    <th st-sort="end_date" class="date st-sort">End date</th>
                     <th st-sort="title" class="title st-sort">Title</th>
                 </tr>
                 <tr>
-                    <td colspan="6"></td>
+                    <td colspan="2"></td>
+                    <td>
+                        <select class="form-control" st-input-event="change keydown" st-search="status.boolean">
+                            <option value=""></option>
+                            <option value="true">Active</option>
+                            <option value="false">Not Active</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td>
+                        <datepicker date-format="yyyy-MM-dd" class="filter-date">
+                            <input type="text" st-search="start_date.date.filter_from" class="form-control input-sm" placeholder="From date…">
+                        </datepicker>
+                        <datepicker date-format="yyyy-MM-dd" class="filter-date">
+                            <input type="text" st-search="start_date.date.filter_to" class="form-control input-sm" placeholder="To date…">
+                        </datepicker>
+                    </td>
+                    <td>
+                        <datepicker date-format="yyyy-MM-dd" class="filter-date">
+                            <input type="text" st-search="end_date.date.filter_from" class="form-control input-sm" placeholder="From date…">
+                        </datepicker>
+                        <datepicker date-format="yyyy-MM-dd" class="filter-date">
+                            <input type="text" st-search="end_date.date.filter_to" class="form-control input-sm" placeholder="To date…">
+                        </datepicker>
+                    </td>
                     <td>
                         <input st-search="title" class="form-control input-sm" placeholder="@lang('global.Search')…" type="text">
                     </td>
@@ -54,7 +80,10 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="7" typi-pagination></td>
+                    <td colspan="6" st-items-by-page="itemsByPage" st-pagination="" st-template="/views/partials/pagination.custom.html"></td>
+                    <td>
+                        <div ng-include="'/views/partials/pagination.itemsPerPage.html'"></div>
+                    </td>
                 </tr>
             </tfoot>
         </table>
