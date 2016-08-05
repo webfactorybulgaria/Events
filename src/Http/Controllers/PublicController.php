@@ -5,9 +5,9 @@ namespace TypiCMS\Modules\Events\Http\Controllers;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Request;
 use TypiCMS;
-use TypiCMS\Modules\Core\Http\Controllers\BasePublicController;
-use TypiCMS\Modules\Events\Repositories\EventInterface;
-use TypiCMS\Modules\Events\Services\Calendar;
+use TypiCMS\Modules\Core\Custom\Http\Controllers\BasePublicController;
+use TypiCMS\Modules\Events\Custom\Repositories\EventInterface;
+use TypiCMS\Modules\Events\Custom\Services\Calendar;
 
 class PublicController extends BasePublicController
 {
