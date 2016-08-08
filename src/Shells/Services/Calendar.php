@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Events\Custom\Services;
+namespace TypiCMS\Modules\Events\Shells\Services;
 
 use TypiCMS\Modules\Events\Services\Calendar as Base;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Events\Custom\Facades;
+namespace TypiCMS\Modules\Events\Shells\Facades;
 
 use TypiCMS\Modules\Events\Facades\Facade as Base;
 

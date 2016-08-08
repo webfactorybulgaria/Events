@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Events\Custom\Http\Controllers;
+namespace TypiCMS\Modules\Events\Shells\Http\Controllers;
 
 use TypiCMS\Modules\Events\Http\Controllers\PublicController as Base;
 

@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Events\Models;
 
-use TypiCMS\Modules\Core\Custom\Models\BaseTranslation;
+use TypiCMS\Modules\Core\Shells\Models\BaseTranslation;
 
 class EventTranslation extends BaseTranslation
 {
@@ -11,6 +11,6 @@ class EventTranslation extends BaseTranslation
      */
     public function owner()
     {
-        return $this->belongsTo('TypiCMS\Modules\Events\Custom\Models\Event', 'event_id')->withoutGlobalScopes();
+        return $this->belongsTo('TypiCMS\Modules\Events\Shells\Models\Event', 'event_id')->withoutGlobalScopes();
     }
 }

@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Events\Services;
 
 use Eluceo\iCal\Component\Calendar as ElucleoCalendar;
 use Eluceo\iCal\Component\Event as ElucleoEvent;
-use TypiCMS\Modules\Events\Custom\Models\Event;
+use TypiCMS\Modules\Events\Shells\Models\Event;
 
 class Calendar
 {

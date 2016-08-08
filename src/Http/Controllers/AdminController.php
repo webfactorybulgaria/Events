@@ -2,10 +2,10 @@
 
 namespace TypiCMS\Modules\Events\Http\Controllers;
 
-use TypiCMS\Modules\Core\Custom\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Events\Custom\Http\Requests\FormRequest;
-use TypiCMS\Modules\Events\Custom\Models\Event;
-use TypiCMS\Modules\Events\Custom\Repositories\EventInterface;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Events\Shells\Http\Requests\FormRequest;
+use TypiCMS\Modules\Events\Shells\Models\Event;
+use TypiCMS\Modules\Events\Shells\Repositories\EventInterface;
 
 class AdminController extends BaseAdminController
 {
@@ -41,7 +41,7 @@ class AdminController extends BaseAdminController
     /**
      * Edit form for the specified resource.
      *
-     * @param \TypiCMS\Modules\Events\Custom\Models\Event $event
+     * @param \TypiCMS\Modules\Events\Shells\Models\Event $event
      *
      * @return \Illuminate\View\View
      */
@@ -54,7 +54,7 @@ class AdminController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \TypiCMS\Modules\Events\Custom\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Events\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -68,8 +68,8 @@ class AdminController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \TypiCMS\Modules\Events\Custom\Models\Event              $event
-     * @param \TypiCMS\Modules\Events\Custom\Http\Requests\FormRequest $request
+     * @param \TypiCMS\Modules\Events\Shells\Models\Event              $event
+     * @param \TypiCMS\Modules\Events\Shells\Http\Requests\FormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */

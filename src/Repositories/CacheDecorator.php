@@ -3,8 +3,8 @@
 namespace TypiCMS\Modules\Events\Repositories;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Custom\Repositories\CacheAbstractDecorator;
-use TypiCMS\Modules\Core\Custom\Services\Cache\CacheInterface;
+use TypiCMS\Modules\Core\Shells\Repositories\CacheAbstractDecorator;
+use TypiCMS\Modules\Core\Shells\Services\Cache\CacheInterface;
 
 class CacheDecorator extends CacheAbstractDecorator implements EventInterface
 {

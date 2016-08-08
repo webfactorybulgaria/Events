@@ -1,6 +1,6 @@
 <?php
 
-namespace TypiCMS\Modules\Events\Custom\Models;
+namespace TypiCMS\Modules\Events\Shells\Models;
 
 use TypiCMS\Modules\Events\Models\Event as Base;
 
