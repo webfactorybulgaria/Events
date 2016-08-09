@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Events\Shells\Models;
 
-use TypiCMS\Modules\Events\Models\EventTranslation as Base;
+use TypiCMS\Modules\Events\Models\EventTranslation as BaseClass;
 
-class EventTranslation extends Base
+class EventTranslation extends BaseClass
 {
 
 }

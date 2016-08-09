@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Events\Shells\Http\Controllers;
 
-use TypiCMS\Modules\Events\Http\Controllers\AdminController as Base;
+use TypiCMS\Modules\Events\Http\Controllers\AdminController as BaseClass;
 
-class AdminController extends Base
+class AdminController extends BaseClass
 {
 
 }

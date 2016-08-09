@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Events\Shells\Repositories;
 
-use TypiCMS\Modules\Events\Repositories\EloquentEvent as Base;
+use TypiCMS\Modules\Events\Repositories\EloquentEvent as BaseClass;
 
-class EloquentEvent extends Base implements EventInterface
+class EloquentEvent extends BaseClass implements EventInterface
 {
 
 }

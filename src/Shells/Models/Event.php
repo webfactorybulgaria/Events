@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Events\Shells\Models;
 
-use TypiCMS\Modules\Events\Models\Event as Base;
+use TypiCMS\Modules\Events\Models\Event as BaseClass;
 
-class Event extends Base
+class Event extends BaseClass
 {
 
 }

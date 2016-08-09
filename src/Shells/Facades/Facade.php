@@ -2,9 +2,9 @@
 
 namespace TypiCMS\Modules\Events\Shells\Facades;
 
-use TypiCMS\Modules\Events\Facades\Facade as Base;
+use TypiCMS\Modules\Events\Facades\Facade as BaseClass;
 
-class Facade extends Base
+class Facade extends BaseClass
 {
 
 }
