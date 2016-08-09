@@ -7,15 +7,15 @@ use Eluceo\iCal\Component\Event as EluceoEvent;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use TypiCMS\Modules\Core\Facades\TypiCMS;
-use TypiCMS\Modules\Core\Observers\FileObserver;
-use TypiCMS\Modules\Core\Observers\SlugObserver;
-use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
-use TypiCMS\Modules\Events\Models\Event;
-use TypiCMS\Modules\Events\Models\EventTranslation;
-use TypiCMS\Modules\Events\Repositories\CacheDecorator;
-use TypiCMS\Modules\Events\Repositories\EloquentEvent;
-use TypiCMS\Modules\Events\Services\Calendar;
+use TypiCMS\Modules\Core\Shells\Facades\TypiCMS;
+use TypiCMS\Modules\Core\Shells\Observers\FileObserver;
+use TypiCMS\Modules\Core\Shells\Observers\SlugObserver;
+use TypiCMS\Modules\Core\Shells\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Events\Shells\Models\Event;
+use TypiCMS\Modules\Events\Shells\Models\EventTranslation;
+use TypiCMS\Modules\Events\Shells\Repositories\CacheDecorator;
+use TypiCMS\Modules\Events\Shells\Repositories\EloquentEvent;
+use TypiCMS\Modules\Events\Shells\Services\Calendar;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -40,7 +40,7 @@ class ModuleProvider extends ServiceProvider
 
         AliasLoader::getInstance()->alias(
             'Events',
-            'TypiCMS\Modules\Events\Facades\Facade'
+            'TypiCMS\Modules\Events\Shells\Facades\Facade'
         );
 
         // Observers
@@ -55,12 +55,12 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Events\Providers\RouteServiceProvider');
+        $app->register('TypiCMS\Modules\Events\Shells\Providers\RouteServiceProvider');
 
         /*
          * Sidebar view composer
          */
-        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Events\Composers\SidebarViewComposer');
+        $app->view->composer('core::admin._sidebar', 'TypiCMS\Modules\Events\Shells\Composers\SidebarViewComposer');
 
         /*
          * Add the page in the view.
@@ -69,7 +69,7 @@ class ModuleProvider extends ServiceProvider
             $view->page = TypiCMS::getPageLinkedToModule('events');
         });
 
-        $app->bind('TypiCMS\Modules\Events\Repositories\EventInterface', function (Application $app) {
+        $app->bind('TypiCMS\Modules\Events\Shells\Repositories\EventInterface', function (Application $app) {
             $repository = new EloquentEvent(new Event());
             if (!config('typicms.cache')) {
                 return $repository;
@@ -82,7 +82,7 @@ class ModuleProvider extends ServiceProvider
         /*
          * Calendar service
          */
-        $app->bind('TypiCMS\Modules\Events\Services\Calendar', function () {
+        $app->bind('TypiCMS\Modules\Events\Shells\Services\Calendar', function () {
             return new Calendar(
                 new EluceoCalendar('TypiCMS'),
                 new EluceoEvent()

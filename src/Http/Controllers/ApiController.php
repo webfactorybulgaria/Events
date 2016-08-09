@@ -3,9 +3,9 @@
 namespace TypiCMS\Modules\Events\Http\Controllers;
 
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Http\Controllers\BaseApiController;
-use TypiCMS\Modules\Events\Models\Event;
-use TypiCMS\Modules\Events\Repositories\EventInterface as Repository;
+use TypiCMS\Modules\Core\Shells\Http\Controllers\BaseApiController;
+use TypiCMS\Modules\Events\Shells\Models\Event;
+use TypiCMS\Modules\Events\Shells\Repositories\EventInterface as Repository;
 
 class ApiController extends BaseApiController
 {
@@ -49,7 +49,7 @@ class ApiController extends BaseApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param \TypiCMS\Modules\Events\Models\Event $event
+     * @param \TypiCMS\Modules\Events\Shells\Models\Event $event
      *
      * @return \Illuminate\Http\JsonResponse
      */
